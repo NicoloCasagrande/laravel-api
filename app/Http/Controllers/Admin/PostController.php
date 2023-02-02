@@ -56,7 +56,7 @@ class PostController extends Controller
         }
         
         $new_post->save();
-
+        
         if(isset($data['tags'])){
             $new_post->tags()->sync($data['tags']);
         }

@@ -12,4 +12,15 @@ class PostController extends Controller
         $posts = Post::with('category', 'tags')->get();
         return $posts;
     }
+
+    public function show($slug){
+        try {
+            $post = Post::where('slug', $slug)->with('category', 'tags')->firstOrFail();
+            return $post;
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response([
+                'error' => '404 Post Not Found'
+            ], 404);
+        }
+    }
 }
