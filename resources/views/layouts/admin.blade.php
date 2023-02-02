@@ -95,7 +95,7 @@
                 </li>
                 <li class="nav-item">
                     <a
-                      class="nav-link text-white {{ Route::currentRouteName() == 'admin.posts.index' ? 'bg-secondary' : '' }}"
+                      class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.posts') ? 'bg-secondary' : '' }}"
                       href="{{route('admin.posts.index')}}"
                     >
                       <i class="fa-solid fa-paperclip fa-lg fa-fw"></i>
@@ -104,7 +104,7 @@
                   </li>
                   <li class="nav-item">
                     <a
-                      class="nav-link text-white {{ Route::currentRouteName() == 'admin.categories.index' ? 'bg-secondary' : '' }}"
+                      class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.categories') ? 'bg-secondary' : '' }}"
                       href="{{route('admin.categories.index')}}"
                     >
                     <i class="fa-solid fa-filter fa-lg fa-fw"></i>
@@ -113,7 +113,7 @@
                   </li>
                   <li class="nav-item">
                     <a
-                      class="nav-link text-white {{ Route::currentRouteName() == 'admin.tags.index' ? 'bg-secondary' : '' }}"
+                      class="nav-link text-white {{ str_contains(Route::currentRouteName(), 'admin.types') ? 'bg-secondary' : '' }}"
                       href="{{route('admin.tags.index')}}"
                     >
                     <i class="fa-solid fa-tag fa-lg fa-fw"></i>
