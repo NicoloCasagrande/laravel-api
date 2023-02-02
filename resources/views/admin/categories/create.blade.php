@@ -23,5 +23,5 @@
         </form>
     </div>
     <a href="{{route('admin.categories.index')}}" class="btn btn-primary my-4">Torna alla Lista</a>
-    @extends('errors')
+
 @endsection
