@@ -14,8 +14,9 @@ class Post extends Model
     protected $appends = ['image_url'];
 
     protected function getImageUrlAttribute(){
-         return $this->cover_image ? asset("storage/$this->cover_image") : null;
+         return $this->cover_image ? asset("storage/$this->cover_image") : 'https://via.placeholder.com/300x300';
     }
+    
 
     public function category(){
         return $this->belongsTo(Category::class);
