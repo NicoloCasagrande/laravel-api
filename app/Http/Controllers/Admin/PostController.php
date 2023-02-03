@@ -100,14 +100,14 @@ class PostController extends Controller
         $old_title = $post->title;
 
         $data = $request->validated();
-
+        $post->fill($data);
         $post->slug = Str::slug($data['title']);
 
         if ( isset($data['cover_image']) ) {
             if( $post->cover_image ) {
                 Storage::delete($post->cover_image);
             }
-            $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
+            $post->cover_image = Storage::disk('public')->put('uploads', $data['cover_image']);
         }
 
         if( isset($data['no_image']) && $post->cover_image  ) {
@@ -115,7 +115,7 @@ class PostController extends Controller
             $post->cover_image = null;
         }
 
-        $post->update($data);
+        $post->update();
 
         if(isset($data['tags'])){
             $post->tags()->sync($data['tags']);
